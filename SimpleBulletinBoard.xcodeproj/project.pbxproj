@@ -15,6 +15,8 @@
 		08F0B3EF222CED4E004985F3 /* SimpleBulletinBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B3EE222CED4E004985F3 /* SimpleBulletinBoardUITests.swift */; };
 		08F0B3FF222CEF11004985F3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B3FE222CEF11004985F3 /* PostCell.swift */; };
 		08F0B401222CEF63004985F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B400222CEF63004985F3 /* ViewController.swift */; };
+		08F0B403222CFDE2004985F3 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B402222CFDE2004985F3 /* Post.swift */; };
+		08F0B405222CFEF1004985F3 /* DataCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B404222CFEF1004985F3 /* DataCenter.swift */; };
 		33D7DE8944D879236D562F1D /* Pods_SimpleBulletinBoardUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A269C56FA62ED624B0699FA /* Pods_SimpleBulletinBoardUITests.framework */; };
 		8100386D582C62C91A48D435 /* Pods_SimpleBulletinBoardTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97B07726A226B6136193ECDA /* Pods_SimpleBulletinBoardTests.framework */; };
 		A0EAD1AAAD6F45AAA5D63043 /* Pods_SimpleBulletinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80672F8541D0B95BBC470100 /* Pods_SimpleBulletinBoard.framework */; };
@@ -52,6 +54,8 @@
 		08F0B3F0222CED4E004985F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08F0B3FE222CEF11004985F3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		08F0B400222CEF63004985F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		08F0B402222CFDE2004985F3 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		08F0B404222CFEF1004985F3 /* DataCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCenter.swift; sourceTree = "<group>"; };
 		48A2F67EAC8D6582BCC03D6A /* Pods-SimpleBulletinBoardUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBulletinBoardUITests.release.xcconfig"; path = "Target Support Files/Pods-SimpleBulletinBoardUITests/Pods-SimpleBulletinBoardUITests.release.xcconfig"; sourceTree = "<group>"; };
 		508C4F58B027EF57B3B45F73 /* Pods-SimpleBulletinBoardTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleBulletinBoardTests.release.xcconfig"; path = "Target Support Files/Pods-SimpleBulletinBoardTests/Pods-SimpleBulletinBoardTests.release.xcconfig"; sourceTree = "<group>"; };
 		80672F8541D0B95BBC470100 /* Pods_SimpleBulletinBoard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleBulletinBoard.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +127,8 @@
 				08F0B3DA222CED4E004985F3 /* Info.plist */,
 				08F0B3FE222CEF11004985F3 /* PostCell.swift */,
 				08F0B400222CEF63004985F3 /* ViewController.swift */,
+				08F0B402222CFDE2004985F3 /* Post.swift */,
+				08F0B404222CFEF1004985F3 /* DataCenter.swift */,
 			);
 			path = SimpleBulletinBoard;
 			sourceTree = "<group>";
@@ -165,7 +171,6 @@
 				FF691B69F36C1674554EAB6C /* Pods-SimpleBulletinBoardUITests.debug.xcconfig */,
 				48A2F67EAC8D6582BCC03D6A /* Pods-SimpleBulletinBoardUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -397,7 +402,9 @@
 			files = (
 				08F0B401222CEF63004985F3 /* ViewController.swift in Sources */,
 				08F0B3CF222CED4B004985F3 /* AppDelegate.swift in Sources */,
+				08F0B405222CFEF1004985F3 /* DataCenter.swift in Sources */,
 				08F0B3FF222CEF11004985F3 /* PostCell.swift in Sources */,
+				08F0B403222CFDE2004985F3 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

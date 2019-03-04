@@ -7,40 +7,76 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UITableViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        Alamofire.request(
+            "http://hulk.zeyo.co.kr:5002/api/documents/",
+            method: .get,
+            parameters: [:],
+            encoding: URLEncoding.default,
+            headers: nil
+            )
+            .validate(statusCode: 200..<300)
+            .responseJSON {
+                response in
+                if let result = response.result.value {
+                    let JSON = result as! NSArray
+                    for postJSON in JSON {
+                        guard let jsonData = postJSON as? Dictionary<String, Any> else {
+                            continue
+                        }
+                        let title = jsonData["title"] as? String
+                        let content = jsonData["content"] as? String
+                        
+                        guard let t = title, let c = content else {
+                            continue
+                        }
+                        dataCenter.posts.append(Post(t, c))
+                    }
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return dataCenter.posts.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! PostCell
+        
+        cell.titleLabel.text = dataCenter.posts[indexPath.row].title
+        cell.contentLabel.text = dataCenter.posts[indexPath.row].content
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
