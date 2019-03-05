@@ -12,17 +12,16 @@ import Alamofire
 let dataCenter = DataCenter()
 
 class DataCenter {
+    let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents/"
     var posts:[Post]
     
     init() {
         posts = []
     }
     
-    
-    
     func loadPosts(completionHandler: @escaping () -> Void) {
         Alamofire.request(
-            "http://hulk.zeyo.co.kr:5002/api/documents/",
+            baseURL,
             method: .get,
             parameters: [:],
             encoding: URLEncoding.default,
