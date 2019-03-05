@@ -26,7 +26,14 @@ class DetailVC: UIViewController {
         contentLabel.text = currentPost.content
     }
     
-
+    @IBAction func deletePressed(_ sender: Any) {
+        if let validID = post?.id {
+            dataCenter.deletePost(id: validID, completionHandler: {
+                self.dismiss(animated: true, completion: nil)
+            })
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

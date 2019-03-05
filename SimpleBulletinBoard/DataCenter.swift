@@ -50,7 +50,7 @@ class DataCenter {
             .responseJSON {
                 response in
                 guard response.result.isSuccess else {
-                    completionHandler()
+                    print("Load unsuccessful.")
                     return
                 }
                 
@@ -72,6 +72,24 @@ class DataCenter {
                         dataCenter.posts.append(Post("\(postCount)", t, c))
                     }
                     
+                }
+                completionHandler()
+        }
+    }
+    
+    func deletePost(id:String, completionHandler: @escaping () -> Void ) {
+        Alamofire.request(
+            "\(baseURL)/\(id)",
+            method: .delete,
+            parameters: [:],
+            encoding: URLEncoding.httpBody,
+            headers:nil
+            )
+            .validate()
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Post unsuccessful.")
+                    return
                 }
                 completionHandler()
         }

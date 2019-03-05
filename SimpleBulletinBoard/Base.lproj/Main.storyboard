@@ -202,7 +202,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9fY-ut-NZC"/>
                     </view>
-                    <navigationItem key="navigationItem" title="상세보기" id="SvJ-SA-Eav"/>
+                    <navigationItem key="navigationItem" title="상세보기" id="SvJ-SA-Eav">
+                        <barButtonItem key="rightBarButtonItem" title="삭제" id="LvT-ND-arR">
+                            <connections>
+                                <action selector="deletePressed:" destination="4kP-tF-gCx" id="YXR-zS-NhV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="contentLabel" destination="MKI-uB-unr" id="P2P-uw-Qxc"/>
                         <outlet property="titleLabel" destination="feD-fr-dhk" id="Ksd-Kn-zKI"/>
