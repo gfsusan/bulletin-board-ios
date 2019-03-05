@@ -12,11 +12,30 @@ import Alamofire
 let dataCenter = DataCenter()
 
 class DataCenter {
-    let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents/"
+    let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents"
     var posts:[Post]
     
     init() {
         posts = []
+    }
+    
+    func uploadPost(title: String, content: String, completionHandler: @escaping () -> Void) {
+        Alamofire.request(
+            "\(baseURL)",
+            method: .post,
+            parameters: ["title" : title, "content" : content],
+            encoding: URLEncoding.httpBody,
+            headers:nil
+        )
+            .validate()
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Post unsuccessful.")
+                    return
+                }
+                completionHandler()
+        }
+        
     }
     
     func loadPosts(completionHandler: @escaping () -> Void) {
@@ -30,10 +49,15 @@ class DataCenter {
             .validate(statusCode: 200..<300)
             .responseJSON {
                 response in
+                guard response.result.isSuccess else {
+                    completionHandler()
+                    return
+                }
+                
                 if let result = response.result.value {
                     var postCount: Int = 0
                     let JSON = result as! NSArray
-                    print(JSON)
+                    dataCenter.posts = []
                     for postJSON in JSON {
                         guard let jsonData = postJSON as? Dictionary<String, Any> else {
                             continue
@@ -52,4 +76,5 @@ class DataCenter {
                 completionHandler()
         }
     }
+
 }
