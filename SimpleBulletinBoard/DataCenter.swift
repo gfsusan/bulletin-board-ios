@@ -55,7 +55,6 @@ class DataCenter {
                 }
                 
                 if let result = response.result.value {
-                    var postCount: Int = 0
                     let JSON = result as! NSArray
                     
                     dataCenter.posts = []
