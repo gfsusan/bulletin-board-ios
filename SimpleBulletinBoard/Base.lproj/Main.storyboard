@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zYd-py-6bG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="p9D-1N-byJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--게시판-->
         <scene sceneID="mcB-bi-YJo">
             <objects>
                 <tableViewController id="zYd-py-6bG" customClass="ViewController" customModule="SimpleBulletinBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -59,8 +59,33 @@
                             <outlet property="delegate" destination="zYd-py-6bG" id="AJF-pw-Wvb"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="게시판" id="TEp-h7-zlT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BA3-Qx-Sxy">
+                            <connections>
+                                <action selector="addPost:" destination="zYd-py-6bG" id="v4C-BP-RNV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8t-d9-p8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1805.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FRX-CE-1bv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p9D-1N-byJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZdU-sf-YLC">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zYd-py-6bG" kind="relationship" relationship="rootViewController" id="Z0K-ri-ohy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mtr-V9-y9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="866.39999999999998" y="115.59220389805098"/>
         </scene>

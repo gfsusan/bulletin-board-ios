@@ -104,4 +104,7 @@ class ViewController: UITableViewController {
             
         }
     }
+    
+    @IBAction func addPost(_ sender: Any) {
+    }
 }
