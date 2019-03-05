@@ -21,38 +21,10 @@ class ViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        Alamofire.request(
-            "http://hulk.zeyo.co.kr:5002/api/documents/",
-            method: .get,
-            parameters: [:],
-            encoding: URLEncoding.default,
-            headers: nil
-            )
-            .validate(statusCode: 200..<300)
-            .responseJSON {
-                response in
-                if let result = response.result.value {
-                    let JSON = result as! NSArray
-                    for postJSON in JSON {
-                        guard let jsonData = postJSON as? Dictionary<String, Any> else {
-                            continue
-                        }
-                        let title = jsonData["title"] as? String
-                        let content = jsonData["content"] as? String
-                        
-                        guard let t = title, let c = content else {
-                            continue
-                        }
-                        dataCenter.posts.append(Post(t, c))
-                    }
-                    
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                    
-                }
-        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadPosts()
     }
 
     // MARK: - Table view data source
@@ -123,4 +95,38 @@ class ViewController: UITableViewController {
     }
     */
 
+    func loadPosts() {
+        Alamofire.request(
+            "http://hulk.zeyo.co.kr:5002/api/documents/",
+            method: .get,
+            parameters: [:],
+            encoding: URLEncoding.default,
+            headers: nil
+            )
+            .validate(statusCode: 200..<300)
+            .responseJSON {
+                response in
+                if let result = response.result.value {
+                    let JSON = result as! NSArray
+                    for postJSON in JSON {
+                        guard let jsonData = postJSON as? Dictionary<String, Any> else {
+                            continue
+                        }
+                        let title = jsonData["title"] as? String
+                        let content = jsonData["content"] as? String
+                        
+                        guard let t = title, let c = content else {
+                            continue
+                        }
+                        dataCenter.posts.append(Post(t, c))
+                    }
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+        }
+    }
 }
