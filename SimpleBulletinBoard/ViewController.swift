@@ -11,6 +11,7 @@ import Alamofire
 
 class ViewController: UITableViewController {
 
+    let requestQueue = DispatchQueue(label: "request")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,39 +97,11 @@ class ViewController: UITableViewController {
     */
 
     func loadPosts() {
-        Alamofire.request(
-            "http://hulk.zeyo.co.kr:5002/api/documents/",
-            method: .get,
-            parameters: [:],
-            encoding: URLEncoding.default,
-            headers: nil
-            )
-            .validate(statusCode: 200..<300)
-            .responseJSON {
-                response in
-                if let result = response.result.value {
-                    var postCount: Int = 0
-                    let JSON = result as! NSArray
-                    for postJSON in JSON {
-                        guard let jsonData = postJSON as? Dictionary<String, Any> else {
-                            continue
-                        }
-                        let title = jsonData["title"] as? String
-                        let content = jsonData["content"] as? String
-                        
-                        guard let t = title, let c = content else {
-                            continue
-                        }
-                        postCount = postCount + 1
-                        dataCenter.posts.append(Post("\(postCount)", t, c))
-                    }
-                    
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                    
-                }
+        dataCenter.loadPosts { () -> Void in
+            if !dataCenter.posts.isEmpty {
+                self.tableView.reloadData()
+            }
+            
         }
     }
 }
