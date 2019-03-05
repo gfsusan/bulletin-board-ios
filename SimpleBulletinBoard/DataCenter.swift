@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 let dataCenter = DataCenter()
+var counter: Int = 4
 
 class DataCenter {
     let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents"
@@ -23,7 +24,7 @@ class DataCenter {
         Alamofire.request(
             "\(baseURL)",
             method: .post,
-            parameters: ["number" : number, "title" : title, "content" : content],
+            parameters: ["number" : counter, "title" : title, "content" : content],
             encoding: URLEncoding.httpBody,
             headers:nil
         )
@@ -33,6 +34,7 @@ class DataCenter {
                     print("Post unsuccessful.")
                     return
                 }
+                counter = counter + 1
                 completionHandler()
         }
         
@@ -70,7 +72,7 @@ class DataCenter {
                         guard let n = number, let t = title, let c = content else {
                             continue
                         }
-                        dataCenter.posts.append(Post("\(n)", t, c))
+                        dataCenter.posts.append(Post(n, t, c))
                     }
                     
                 }
@@ -78,7 +80,7 @@ class DataCenter {
         }
     }
     
-    func deletePost(id:String, completionHandler: @escaping () -> Void ) {
+    func deletePost(id:Int, completionHandler: @escaping () -> Void ) {
         Alamofire.request(
             "\(baseURL)/\(id)",
             method: .delete,

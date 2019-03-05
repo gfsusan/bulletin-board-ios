@@ -23,7 +23,7 @@ class AddVC: UIViewController {
     @IBAction func savePressed(_ sender: Any) {
         var num = 1
         while (true) {
-            if dataCenter.posts.filter({$0.number == String(num)}).isEmpty {
+            if dataCenter.posts.filter({$0.number == num}).isEmpty {
                 break;
             } else {
                 num = num + 1

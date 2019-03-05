@@ -9,12 +9,12 @@
 import Foundation
 
 struct Post: Decodable{
-    var number:String
+    var number:Int
     var title:String
     var content:String
     
-    init(_ index: String, _ title: String, _ content: String) {
-        self.number = index
+    init(_ number: Int, _ title: String, _ content: String) {
+        self.number = number
         self.title = title
         self.content = content
     }
