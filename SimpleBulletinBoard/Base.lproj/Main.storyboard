@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,6 +38,13 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSO-Ai-POQ">
+                                            <rect key="frame" x="16" y="45" width="343" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="rMQ-A2-mcv" firstAttribute="top" secondItem="XBe-Ob-nsy" secondAttribute="bottom" constant="8" id="2S1-QZ-4Jl"/>
@@ -51,6 +59,7 @@
                                 <connections>
                                     <outlet property="contentLabel" destination="rMQ-A2-mcv" id="rrh-xX-1HH"/>
                                     <outlet property="titleLabel" destination="XBe-Ob-nsy" id="6A9-mC-J2A"/>
+                                    <segue destination="4kP-tF-gCx" kind="show" id="NbF-jp-FtH"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -70,6 +79,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8t-d9-p8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1805.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--상세보기-->
+        <scene sceneID="ghb-LM-zGw">
+            <objects>
+                <viewController id="4kP-tF-gCx" customClass="DetailVC" customModule="SimpleBulletinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LCS-8C-B9N">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKI-uB-unr">
+                                <rect key="frame" x="8" y="106" width="359" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="EsI-Ms-9Vn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feD-fr-dhk">
+                                <rect key="frame" x="8" y="72" width="359" height="26"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="MKI-uB-unr" firstAttribute="top" secondItem="feD-fr-dhk" secondAttribute="bottom" constant="8" id="Ak5-w0-i2Q"/>
+                            <constraint firstItem="feD-fr-dhk" firstAttribute="top" secondItem="9fY-ut-NZC" secondAttribute="top" constant="8" id="GkV-Tb-v92"/>
+                            <constraint firstAttribute="trailing" secondItem="MKI-uB-unr" secondAttribute="trailing" constant="8" id="J0C-if-Luj"/>
+                            <constraint firstItem="9fY-ut-NZC" firstAttribute="trailing" secondItem="feD-fr-dhk" secondAttribute="trailing" constant="8" id="TAq-ka-Efg"/>
+                            <constraint firstItem="MKI-uB-unr" firstAttribute="leading" secondItem="9fY-ut-NZC" secondAttribute="leading" constant="8" id="Xhu-N6-kno"/>
+                            <constraint firstItem="feD-fr-dhk" firstAttribute="leading" secondItem="9fY-ut-NZC" secondAttribute="leading" constant="8" id="bda-Pr-Nhh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9fY-ut-NZC"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="상세보기" id="SvJ-SA-Eav"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="MKI-uB-unr" id="P2P-uw-Qxc"/>
+                        <outlet property="titleLabel" destination="feD-fr-dhk" id="Ksd-Kn-zKI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnz-kC-Crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2606" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FRX-CE-1bv">
