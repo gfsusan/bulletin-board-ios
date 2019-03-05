@@ -10,7 +10,7 @@ import UIKit
 
 class DetailVC: UIViewController {
 
-    var index:String?
+    var post:Post?
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
@@ -18,6 +18,12 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        guard let currentPost = post else {
+            return
+        }
+        
+        titleLabel.text = currentPost.title
+        contentLabel.text = currentPost.content
     }
     
 
