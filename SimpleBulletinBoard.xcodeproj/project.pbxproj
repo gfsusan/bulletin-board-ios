@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		086F1F71222E469300ABE868 /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F1F70222E469300ABE868 /* DetailVC.swift */; };
+		086F1F73222E4CA800ABE868 /* AddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086F1F72222E4CA800ABE868 /* AddVC.swift */; };
 		08F0B3CF222CED4B004985F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F0B3CE222CED4B004985F3 /* AppDelegate.swift */; };
 		08F0B3D4222CED4B004985F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08F0B3D2222CED4B004985F3 /* Main.storyboard */; };
 		08F0B3D6222CED4E004985F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08F0B3D5222CED4E004985F3 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		086F1F70222E469300ABE868 /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		086F1F72222E4CA800ABE868 /* AddVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVC.swift; sourceTree = "<group>"; };
 		08F0B3CB222CED4B004985F3 /* SimpleBulletinBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleBulletinBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08F0B3CE222CED4B004985F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08F0B3D3222CED4B004985F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				08F0B402222CFDE2004985F3 /* Post.swift */,
 				08F0B404222CFEF1004985F3 /* DataCenter.swift */,
 				086F1F70222E469300ABE868 /* DetailVC.swift */,
+				086F1F72222E4CA800ABE868 /* AddVC.swift */,
 			);
 			path = SimpleBulletinBoard;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				08F0B405222CFEF1004985F3 /* DataCenter.swift in Sources */,
 				08F0B3FF222CEF11004985F3 /* PostCell.swift in Sources */,
 				08F0B403222CFDE2004985F3 /* Post.swift in Sources */,
+				086F1F73222E4CA800ABE868 /* AddVC.swift in Sources */,
 				086F1F71222E469300ABE868 /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

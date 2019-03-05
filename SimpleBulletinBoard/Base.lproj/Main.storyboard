@@ -72,6 +72,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BA3-Qx-Sxy">
                             <connections>
                                 <action selector="addPost:" destination="zYd-py-6bG" id="v4C-BP-RNV"/>
+                                <segue destination="t8m-eb-TUZ" kind="presentation" id="NNF-kO-wI7"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -79,6 +80,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j8t-d9-p8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1805.5999999999999" y="115.59220389805098"/>
+        </scene>
+        <!--글 작성하기-->
+        <scene sceneID="5W4-qd-ge3">
+            <objects>
+                <viewController id="rRl-fV-10q" customClass="AddVC" customModule="SimpleBulletinBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MKX-6b-itD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="여기에 내용을 작성하세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JsP-Nn-DiE">
+                                <rect key="frame" x="8" y="143.5" width="359" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="3to-z9-YOP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mup-gs-VaN">
+                                <rect key="frame" x="8" y="72" width="359" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t4h-VB-UPT">
+                                        <rect key="frame" x="0.0" y="0.0" width="36.5" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="PX9-c3-ohW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fon-a3-jBD">
+                                        <rect key="frame" x="44.5" y="0.0" width="314.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="t4h-VB-UPT" firstAttribute="leading" secondItem="Mup-gs-VaN" secondAttribute="leading" id="6Op-09-iNZ"/>
+                                    <constraint firstItem="Fon-a3-jBD" firstAttribute="top" secondItem="Mup-gs-VaN" secondAttribute="top" id="79d-dI-IHa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fon-a3-jBD" secondAttribute="trailing" id="9ER-Ii-JSc"/>
+                                    <constraint firstItem="t4h-VB-UPT" firstAttribute="top" secondItem="Mup-gs-VaN" secondAttribute="top" id="Ddb-xk-0dt"/>
+                                    <constraint firstItem="Fon-a3-jBD" firstAttribute="leading" secondItem="t4h-VB-UPT" secondAttribute="trailing" constant="8" id="Edz-zD-r9h"/>
+                                    <constraint firstAttribute="bottom" secondItem="t4h-VB-UPT" secondAttribute="bottom" id="FmR-L4-4BP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fon-a3-jBD" secondAttribute="bottom" id="Rlv-Sw-KRB"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZx-cl-ao7">
+                                <rect key="frame" x="8" y="110" width="36.5" height="25.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VZx-cl-ao7" firstAttribute="top" secondItem="Mup-gs-VaN" secondAttribute="bottom" constant="8" id="07Y-uQ-qcf"/>
+                            <constraint firstItem="JsP-Nn-DiE" firstAttribute="top" secondItem="VZx-cl-ao7" secondAttribute="bottom" constant="8" id="4o1-fy-FQr"/>
+                            <constraint firstItem="e28-WD-bJ7" firstAttribute="trailing" secondItem="Mup-gs-VaN" secondAttribute="trailing" constant="8" id="Rhi-OE-Xd5"/>
+                            <constraint firstItem="JsP-Nn-DiE" firstAttribute="leading" secondItem="e28-WD-bJ7" secondAttribute="leading" constant="8" id="bMc-mQ-Ujg"/>
+                            <constraint firstItem="Mup-gs-VaN" firstAttribute="leading" secondItem="e28-WD-bJ7" secondAttribute="leading" constant="8" id="bhY-WK-2rD"/>
+                            <constraint firstItem="Mup-gs-VaN" firstAttribute="top" secondItem="e28-WD-bJ7" secondAttribute="top" constant="8" id="fpX-p6-iPv"/>
+                            <constraint firstItem="e28-WD-bJ7" firstAttribute="trailing" secondItem="JsP-Nn-DiE" secondAttribute="trailing" constant="8" id="kjj-E3-v56"/>
+                            <constraint firstItem="VZx-cl-ao7" firstAttribute="leading" secondItem="e28-WD-bJ7" secondAttribute="leading" constant="8" id="z0b-4r-VUh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e28-WD-bJ7"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="글 작성하기" id="pwO-1Y-dgj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BjH-qb-tbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3648.8000000000002" y="-127.28635682158921"/>
         </scene>
         <!--상세보기-->
         <scene sceneID="ghb-LM-zGw">
@@ -123,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnz-kC-Crx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2606" y="116"/>
+            <point key="canvasLocation" x="2710" y="529"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="FRX-CE-1bv">
@@ -142,6 +215,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mtr-V9-y9S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="866.39999999999998" y="115.59220389805098"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xCl-0a-xtC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t8m-eb-TUZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4Zi-Kp-2Xn">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rRl-fV-10q" kind="relationship" relationship="rootViewController" id="MSi-qB-cFD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZtL-8G-Dch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2709.5999999999999" y="-127.28635682158921"/>
         </scene>
     </scenes>
 </document>
