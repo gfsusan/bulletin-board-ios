@@ -21,10 +21,18 @@ class AddVC: UIViewController {
     
 
     @IBAction func savePressed(_ sender: Any) {
+        var num = 1
+        while (true) {
+            if dataCenter.posts.filter({$0.number == String(num)}).isEmpty {
+                break;
+            } else {
+                num = num + 1
+            }
+        }
         let title = titleField.text!
         let content = contentField.text!
-        dataCenter.uploadPost(title: title, content: content) {
-            
+        dataCenter.uploadPost(number: "\(num)", title: title, content: content) {
+            // do nothing
         }
         self.dismiss(animated: true, completion: nil)
     }

@@ -27,7 +27,7 @@ class DetailVC: UIViewController {
     }
     
     @IBAction func deletePressed(_ sender: Any) {
-        if let validID = post?.id {
+        if let validID = post?.number {
             dataCenter.deletePost(id: validID, completionHandler: {
                 self.dismiss(animated: true, completion: nil)
             })

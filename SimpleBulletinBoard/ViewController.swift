@@ -111,12 +111,5 @@ class ViewController: UITableViewController {
         }
     }
     
-    @IBAction func addPost(_ sender: Any) {
-        dataCenter.uploadPost(title: "this is a new post", content: "testing !!! ") { 
-            dataCenter.loadPosts {
-                self.tableView.reloadData()
-            }
-        }
-    }
     
 }

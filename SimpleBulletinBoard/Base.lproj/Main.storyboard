@@ -71,7 +71,6 @@
                     <navigationItem key="navigationItem" title="게시판" id="TEp-h7-zlT">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="BA3-Qx-Sxy">
                             <connections>
-                                <action selector="addPost:" destination="zYd-py-6bG" id="v4C-BP-RNV"/>
                                 <segue destination="t8m-eb-TUZ" kind="presentation" id="NNF-kO-wI7"/>
                             </connections>
                         </barButtonItem>

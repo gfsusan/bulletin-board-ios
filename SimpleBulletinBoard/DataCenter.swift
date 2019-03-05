@@ -19,11 +19,11 @@ class DataCenter {
         posts = []
     }
     
-    func uploadPost(title: String, content: String, completionHandler: @escaping () -> Void) {
+    func uploadPost(number: String, title: String, content: String, completionHandler: @escaping () -> Void) {
         Alamofire.request(
             "\(baseURL)",
             method: .post,
-            parameters: ["title" : title, "content" : content],
+            parameters: ["number" : number, "title" : title, "content" : content],
             encoding: URLEncoding.httpBody,
             headers:nil
         )
