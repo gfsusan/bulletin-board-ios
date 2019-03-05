@@ -10,6 +10,9 @@ import UIKit
 
 class AddVC: UIViewController {
 
+    @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var contentField: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +20,18 @@ class AddVC: UIViewController {
     }
     
 
+    @IBAction func savePressed(_ sender: Any) {
+        let title = titleField.text!
+        let content = contentField.text!
+        dataCenter.uploadPost(title: title, content: content) {
+            
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

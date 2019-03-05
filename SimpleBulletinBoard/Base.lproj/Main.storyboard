@@ -122,7 +122,6 @@
                                     <constraint firstItem="Fon-a3-jBD" firstAttribute="top" secondItem="Mup-gs-VaN" secondAttribute="top" id="79d-dI-IHa"/>
                                     <constraint firstAttribute="trailing" secondItem="Fon-a3-jBD" secondAttribute="trailing" id="9ER-Ii-JSc"/>
                                     <constraint firstItem="t4h-VB-UPT" firstAttribute="top" secondItem="Mup-gs-VaN" secondAttribute="top" id="Ddb-xk-0dt"/>
-                                    <constraint firstItem="Fon-a3-jBD" firstAttribute="leading" secondItem="t4h-VB-UPT" secondAttribute="trailing" constant="8" id="Edz-zD-r9h"/>
                                     <constraint firstAttribute="bottom" secondItem="t4h-VB-UPT" secondAttribute="bottom" id="FmR-L4-4BP"/>
                                     <constraint firstAttribute="bottom" secondItem="Fon-a3-jBD" secondAttribute="bottom" id="Rlv-Sw-KRB"/>
                                 </constraints>
@@ -147,7 +146,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="e28-WD-bJ7"/>
                     </view>
-                    <navigationItem key="navigationItem" title="글 작성하기" id="pwO-1Y-dgj"/>
+                    <navigationItem key="navigationItem" title="글 작성하기" id="pwO-1Y-dgj">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="ZE9-fU-ghX">
+                            <connections>
+                                <action selector="cancelPressed:" destination="rRl-fV-10q" id="KAn-tD-vpq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="wtc-CE-P9m">
+                            <connections>
+                                <action selector="savePressed:" destination="rRl-fV-10q" id="4i0-Ad-GUp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentField" destination="JsP-Nn-DiE" id="1Us-Sw-Wg8"/>
+                        <outlet property="titleField" destination="Fon-a3-jBD" id="KkY-wW-f2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BjH-qb-tbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
