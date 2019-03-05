@@ -13,18 +13,34 @@ class AddVC: UIViewController {
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentField: UITextView!
     
+    var detailVCDelegate: DetailVC?
+    var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        if let currentPost = post {
+            print("dlkfajlkdsfjk")
+            titleField.text = currentPost.title
+            contentField.text = currentPost.content
+        }
     }
     
 
     @IBAction func savePressed(_ sender: Any) {
         let title = titleField.text!
         let content = contentField.text!
-        dataCenter.uploadPost(number: "1", title: title, content: content) {
-            self.dismiss(animated: true, completion: nil)
+        
+        if let currentPost = post {
+            dataCenter.modifyPost(id: currentPost.number, title: title, content: content) {
+                self.dismiss(animated: true, completion: nil)
+            }
+        } else {
+            dataCenter.uploadPost(number: "1", title: title, content: content) {
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
