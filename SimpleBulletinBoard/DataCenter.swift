@@ -89,7 +89,7 @@ class DataCenter {
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess else {
-                    print("Post unsuccessful.")
+                    print("Delete unsuccessful.")
                     return
                 }
                 completionHandler()
