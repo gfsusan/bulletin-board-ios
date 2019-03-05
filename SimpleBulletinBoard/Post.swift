@@ -17,4 +17,10 @@ struct Post: Decodable{
         self.title = title
         self.content = content
     }
+    
+    init(_ index: String, _ title: String, _ content: String) {
+        self.id = index
+        self.title = title
+        self.content = content
+    }
 }

@@ -107,6 +107,7 @@ class ViewController: UITableViewController {
             .responseJSON {
                 response in
                 if let result = response.result.value {
+                    var postCount: Int = 0
                     let JSON = result as! NSArray
                     for postJSON in JSON {
                         guard let jsonData = postJSON as? Dictionary<String, Any> else {
@@ -118,7 +119,8 @@ class ViewController: UITableViewController {
                         guard let t = title, let c = content else {
                             continue
                         }
-                        dataCenter.posts.append(Post(t, c))
+                        postCount = postCount + 1
+                        dataCenter.posts.append(Post("\(postCount)", t, c))
                     }
                     
                     
