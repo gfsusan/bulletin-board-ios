@@ -25,7 +25,7 @@ class DataCenter {
             method: .get,
             parameters: [:],
             encoding: URLEncoding.default,
-            headers: ["Content-Type" : "application/json"]
+            headers: ["Content-Type" : "application/json", "charset" : "UTF-8"]
             )
             .validate(statusCode: 200..<300)
             .responseJSON {
