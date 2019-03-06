@@ -46,6 +46,7 @@ class DetailVC: UIViewController {
         if let destinationNavigationController = segue.destination as? UINavigationController {
             let targetController = destinationNavigationController.topViewController as? ModifyVC
             targetController?.post = self.post
+            targetController?.detailVCDelegate = self
         }
         
     }

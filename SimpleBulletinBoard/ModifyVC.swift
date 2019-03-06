@@ -14,6 +14,7 @@ class ModifyVC: UIViewController {
     @IBOutlet weak var contentField: UITextView!
     
     var post:Post?
+    var detailVCDelegate:DetailVC?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,8 @@ class ModifyVC: UIViewController {
         }
         
         dataCenter.modifyPost(number: currentPost.number, title: titleText, content: contentText) {
+            self.detailVCDelegate?.titleLabel.text = titleText
+            self.detailVCDelegate?.contentLabel.text = contentText
             self.dismiss(animated: true, completion: nil)
         }
     }
