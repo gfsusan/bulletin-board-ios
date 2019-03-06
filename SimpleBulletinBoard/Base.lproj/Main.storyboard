@@ -297,7 +297,7 @@
                             </barButtonItem>
                             <barButtonItem title="수정" id="S3W-Q6-IrN">
                                 <connections>
-                                    <segue destination="eNP-hN-unt" kind="presentation" id="gK5-VG-xAF"/>
+                                    <segue destination="eNP-hN-unt" kind="presentation" id="Erx-ee-mqr"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -358,7 +358,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="ccn-8f-WZc" kind="relationship" relationship="rootViewController" id="Trd-M8-wyK"/>
+                        <segue destination="ccn-8f-WZc" kind="relationship" relationship="rootViewController" id="83M-eL-wPT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d9n-Cs-LMM" userLabel="First Responder" sceneMemberID="firstResponder"/>

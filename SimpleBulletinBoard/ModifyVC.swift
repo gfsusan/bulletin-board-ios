@@ -12,16 +12,26 @@ class ModifyVC: UIViewController {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentField: UITextView!
+    
+    var post:Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        guard let currentPost = post else {
+            return
+        }
+        
+        titleField.text = currentPost.title
+        contentField.text = currentPost.content
     }
     
     @IBAction func savePressed(_ sender: Any) {
+        
     }
     
     @IBAction func cancelPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     /*

@@ -135,8 +135,8 @@
 				08F0B400222CEF63004985F3 /* ViewController.swift */,
 				08F0B402222CFDE2004985F3 /* Post.swift */,
 				08F0B404222CFEF1004985F3 /* DataCenter.swift */,
-				086F1F70222E469300ABE868 /* DetailVC.swift */,
 				086F1F72222E4CA800ABE868 /* AddVC.swift */,
+				086F1F70222E469300ABE868 /* DetailVC.swift */,
 				086F1F7C222F51B900ABE868 /* ModifyVC.swift */,
 			);
 			path = SimpleBulletinBoard;
