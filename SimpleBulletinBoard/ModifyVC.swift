@@ -27,7 +27,18 @@ class ModifyVC: UIViewController {
     }
     
     @IBAction func savePressed(_ sender: Any) {
+        guard let currentPost = post else {
+            return
+        }
         
+        guard let titleText = titleField.text, let contentText = contentField.text else {
+            // TODO 알림
+            return
+        }
+        
+        dataCenter.modifyPost(number: currentPost.number, title: titleText, content: contentText) {
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func cancelPressed(_ sender: Any) {

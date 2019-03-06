@@ -80,9 +80,9 @@ class DataCenter {
         }
     }
     
-    func deletePost(id:Int, completionHandler: @escaping () -> Void ) {
+    func deletePost(name: Int, completionHandler: @escaping () -> Void ) {
         Alamofire.request(
-            "\(baseURL)/\(id)",
+            "\(baseURL)/\(name)",
             method: .delete,
             parameters: [:],
             encoding: URLEncoding.httpBody,
@@ -94,6 +94,29 @@ class DataCenter {
                     print("Delete unsuccessful.")
                     return
                 }
+                completionHandler()
+        }
+    }
+    
+    func modifyPost(number: Int, title: String, content: String, completionHandler: @escaping () -> Void ) {
+        Alamofire.request(
+            "\(baseURL)/\(number)",
+            method: .put,
+            parameters: ["number" : number, "title" : title, "content" : content],
+            encoding: URLEncoding.httpBody,
+            headers:nil
+            )
+            .validate()
+            .responseJSON { response in
+                guard response.result.isSuccess else {
+                    print("Modify unsuccessful.")
+                    return
+                }
+                print("doneeeeee")
+                print(number)
+                print(title)
+                print(content)
+                
                 completionHandler()
         }
     }

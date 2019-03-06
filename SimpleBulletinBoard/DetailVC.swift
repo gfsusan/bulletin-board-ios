@@ -14,10 +14,7 @@ class DetailVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    override func viewWillAppear(_ animated: Bool) {
         guard let currentPost = post else {
             return
         }
@@ -26,9 +23,13 @@ class DetailVC: UIViewController {
         contentLabel.text = currentPost.content
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     @IBAction func deletePressed(_ sender: Any) {
         if let validID = post?.number {
-            dataCenter.deletePost(id: validID, completionHandler: {
+            dataCenter.deletePost(name: validID, completionHandler: {
                 self.dismiss(animated: true, completion: nil)
             })
         }
