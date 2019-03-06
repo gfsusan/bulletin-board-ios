@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 let dataCenter = DataCenter()
-var counter: Int = 4
+var counter: Int = 3
 
 class DataCenter {
     let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents"
