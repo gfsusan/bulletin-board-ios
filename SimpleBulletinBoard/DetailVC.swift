@@ -29,8 +29,10 @@ class DetailVC: UIViewController {
     
     @IBAction func deletePressed(_ sender: Any) {
         if let validID = post?.number {
-            dataCenter.deletePost(name: validID, completionHandler: {
-                self.dismiss(animated: true, completion: nil)
+            dataCenter.deletePost(name: validID, completionHandler: { error in
+                if error == nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
             })
         }
     }

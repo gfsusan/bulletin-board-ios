@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 let dataCenter = DataCenter()
-var counter: Int = 3
+var counter: Int = 1
 
 class DataCenter {
     let baseURL = "http://hulk.zeyo.co.kr:5002/api/documents"
@@ -20,7 +20,7 @@ class DataCenter {
         posts = []
     }
     
-    func uploadPost(number: String, title: String, content: String, completionHandler: @escaping () -> Void) {
+    func uploadPost(number: String, title: String, content: String, completionHandler: @escaping (_ error: Error?) -> Void) {
         Alamofire.request(
             "\(baseURL)",
             method: .post,
@@ -31,16 +31,17 @@ class DataCenter {
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess else {
-                    print("Post unsuccessful.")
+                    counter = counter + 1
+                    completionHandler(response.error)
                     return
                 }
                 counter = counter + 1
-                completionHandler()
+                completionHandler(response.error)
         }
         
     }
     
-    func loadPosts(completionHandler: @escaping (_ error:Error?) -> Void) {
+    func loadPosts(completionHandler: @escaping (_ error: Error?) -> Void) {
         Alamofire.request(
             baseURL,
             method: .get,
@@ -80,7 +81,7 @@ class DataCenter {
         }
     }
     
-    func deletePost(name: Int, completionHandler: @escaping () -> Void ) {
+    func deletePost(name: Int, completionHandler: @escaping (_ error: Error?) -> Void ) {
         Alamofire.request(
             "\(baseURL)/\(name)",
             method: .delete,
@@ -91,14 +92,14 @@ class DataCenter {
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess else {
-                    print("Delete unsuccessful.")
+                    completionHandler(response.error)
                     return
                 }
-                completionHandler()
+                completionHandler(response.error)
         }
     }
     
-    func modifyPost(number: Int, title: String, content: String, completionHandler: @escaping () -> Void ) {
+    func modifyPost(number: Int, title: String, content: String, completionHandler: @escaping (_ error: Error?) -> Void ) {
         Alamofire.request(
             "\(baseURL)/\(number)",
             method: .put,
@@ -109,15 +110,10 @@ class DataCenter {
             .validate()
             .responseJSON { response in
                 guard response.result.isSuccess else {
-                    print("Modify unsuccessful.")
+                    completionHandler(response.error)
                     return
                 }
-                print("doneeeeee")
-                print(number)
-                print(title)
-                print(content)
-                
-                completionHandler()
+                completionHandler(response.error)
         }
     }
 

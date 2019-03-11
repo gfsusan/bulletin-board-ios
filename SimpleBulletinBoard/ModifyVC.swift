@@ -37,10 +37,12 @@ class ModifyVC: UIViewController {
             return
         }
         
-        dataCenter.modifyPost(number: currentPost.number, title: titleText, content: contentText) {
-            self.detailVCDelegate?.titleLabel.text = titleText
-            self.detailVCDelegate?.contentLabel.text = contentText
-            self.dismiss(animated: true, completion: nil)
+        dataCenter.modifyPost(number: currentPost.number, title: titleText, content: contentText) { error in
+            if error == nil {
+                self.detailVCDelegate?.titleLabel.text = titleText
+                self.detailVCDelegate?.contentLabel.text = contentText
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

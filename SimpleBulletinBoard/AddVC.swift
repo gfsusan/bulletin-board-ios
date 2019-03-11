@@ -23,8 +23,16 @@ class AddVC: UIViewController {
     @IBAction func savePressed(_ sender: Any) {
         let title = titleField.text!
         let content = contentField.text!
-        dataCenter.uploadPost(number: "1", title: title, content: content) {
-            self.dismiss(animated: true, completion: nil)
+        dataCenter.uploadPost(number: "1", title: title, content: content) { error in
+            if error == nil {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Unable to add post.", message: "Please try again.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true)
+                print("Failed to save.")
+            }
         }
     }
     
