@@ -42,6 +42,11 @@ class ModifyVC: UIViewController {
                 self.detailVCDelegate?.titleLabel.text = titleText
                 self.detailVCDelegate?.contentLabel.text = contentText
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Unable to modify post.", message: "Please try again later.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true)
             }
         }
     }
