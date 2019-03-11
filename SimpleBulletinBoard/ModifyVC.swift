@@ -18,7 +18,11 @@ class ModifyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         guard let currentPost = post else {
             return
         }
@@ -39,8 +43,10 @@ class ModifyVC: UIViewController {
         
         dataCenter.modifyPost(number: currentPost.number, title: titleText, content: contentText) { error in
             if error == nil {
-                self.detailVCDelegate?.titleLabel.text = titleText
-                self.detailVCDelegate?.contentLabel.text = contentText
+                let modifiedPost = Post(currentPost.number, titleText, contentText)
+                self.post = modifiedPost
+                
+                self.detailVCDelegate?.post = self.post
                 self.dismiss(animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Unable to modify post.", message: "Please try again later.", preferredStyle: .alert)
