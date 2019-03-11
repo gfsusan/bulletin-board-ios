@@ -103,9 +103,14 @@ class ViewController: UITableViewController {
     
 
     func loadPosts() {
-        dataCenter.loadPosts { () -> Void in
-            if !dataCenter.posts.isEmpty {
+        dataCenter.loadPosts { (error) -> Void in
+            if error == nil {
                 self.tableView.reloadData()
+            } else {
+                let alert = UIAlertController(title: "Unable to load posts.", message: "Please try again later.", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(defaultAction)
+                self.present(alert, animated: true)
             }
             
         }

@@ -40,7 +40,7 @@ class DataCenter {
         
     }
     
-    func loadPosts(completionHandler: @escaping () -> Void) {
+    func loadPosts(completionHandler: @escaping (_ error:Error?) -> Void) {
         Alamofire.request(
             baseURL,
             method: .get,
@@ -52,7 +52,7 @@ class DataCenter {
             .responseJSON {
                 response in
                 guard response.result.isSuccess else {
-                    print("Load unsuccessful.")
+                    completionHandler(response.error)
                     return
                 }
                 
@@ -76,7 +76,7 @@ class DataCenter {
                     }
                     
                 }
-                completionHandler()
+                completionHandler(response.error)
         }
     }
     
