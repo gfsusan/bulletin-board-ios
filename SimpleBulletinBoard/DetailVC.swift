@@ -30,8 +30,14 @@ class DetailVC: UIViewController {
     @IBAction func deletePressed(_ sender: Any) {
         if let validID = post?.number {
             dataCenter.deletePost(name: validID, completionHandler: { error in
-                self.navigationController?.popViewController(animated: true)
-                
+                if error == nil {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    let alert = UIAlertController(title: "Unable to delete post.", message: "Please try again.", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                    alert.addAction(defaultAction)
+                    self.present(alert, animated: true)
+                }
             })
         }
     }
